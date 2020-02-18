@@ -1,13 +1,16 @@
-Package: rsddistplot
-Title: What the Package Does (One Line, Title Case)
+Package: rsdistplot
+Title: Random Samples, Distributions and Plots
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Minh",
+           family = "Nguyen",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "minhtuan.h.nguyen@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
-License: What license it uses
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Suggests: 
+    spelling
+Language: en-US
