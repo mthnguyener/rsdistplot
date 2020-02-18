@@ -14,3 +14,7 @@ LazyData: true
 Suggests: 
     spelling
 Language: en-US
+Imports: 
+    dplyr,
+    purrr,
+    ggplot2
