@@ -1,20 +1,24 @@
-#Allow users to generate plots of histograms for random samples from 4 different distributions:
-#Normal
-#t
-#F
-#Binomial
-
-#Users should only have to enter the name of the distribution and the number of samples to get a result.
-#Users should be able to include additional parameters for each distribution as well as the number of bins for the histogram
-
-#Normal: Mean and Standard Deviation
-#t: Degrees of Freedom
-#F: Numerator and Denominator Degrees of Freedom
-#Binomial: Size (Number of Trials),and p (Probability of Success on each Trial)
-
-#Users should be able to choose to set the seed or not and if they set the seed the value of the seed.
-
-
+#' Random Sample Histogram
+#'
+#' Allow users to generate plots of histograms for random samples from 4 different distributions: Normal("n"), t("t"), F("f"), Binomial("b")
+#' Users should only have to enter the name of the distribution ("n", "t", "f", "b") and the number of samples (n) to get a result
+#' Users should be able to include additional parameters for each distribution as well as the number of bins for the histogram
+#' Normal: Mean (x) and Standard Deviation (y)
+#' t: Degrees of Freedom (x)
+#' F: Numerator (x) and Denominator Degrees of Freedom (y)
+#' Binomial: Size-Number of Trials (x),and p-Probability of Success on each Trial (y)
+#' Users should be able to choose to set the seed or not and if they set the seed the value of the seed (the last arguments or s).
+#'
+#' @param d Character variable representing 4 types of distributions (n = Normal, t = t, f = F, and b = Binomial)
+#' @param n Interger variable for sample size
+#' @param x Parameter 1 of the distribution
+#' @param y Parameter 2 of the distribution
+#' @param s Set seed to s interger
+#'
+#' @return
+#' @export
+#'
+#' @examples
 rshist <- function(d, n, x, y=NULL, s=NULL) {
   set.seed(s)
   if (d == 'n') {
