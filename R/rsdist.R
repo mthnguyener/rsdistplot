@@ -17,20 +17,21 @@
 #'
 #' @return
 #' @export
+#' @importFrom stats rnorm rt rf rbinom
 #'
-#' @examples
+#' @examples rsdist("n", n = 50, x = 6, y = 5, s = 1)
 rsdist <- function(d, n, x, y=NULL, s=NULL) {
   set.seed(s)
-  if (d == 'n') {
+  if (d == "n") {
     rnorm(n = n, mean = x, sd = y)
-  } else if (d == 't') {
+  } else if (d == "t") {
     set.seed(y)
     rt(n = n, df = x)
-  } else if (d == 'f') {
+  } else if (d == "f") {
     rf(n = n, df1 = x, df2 = y)
-  }  else if (d == 'b') {
+  }  else if (d == "b") {
     rbinom(n = n, size = x, prob = y)
   } else {
-    stop(paste0("normal = (\"n\", n, x=mean, y=sd, s=set.seed(s)), t dist = (\"t\", n, x=df, y=set.seed(s)), F dist = (\"f\", n, x=v1, y=v2, s=set.seed(s)), Binomial = (\"b\", n, x=size, y=probability, s=set.seed(s))"))
+    stop(paste0("distribution is not normal (\"n\"), t (\"t\"), F (\"f\"), Binomial = (\"b\")"))
   }
 }

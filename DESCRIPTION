@@ -17,4 +17,7 @@ Language: en-US
 Imports: 
     dplyr,
     purrr,
-    ggplot2
+    ggplot2,
+    stats,
+    ggthemes
+RoxygenNote: 7.0.2
