@@ -33,7 +33,7 @@ rshist <- function(d, n, x = 50, y = 50, s=NULL, b=2) {
       theme_economist() +
       scale_color_economist() +
       ggtitle("Random Normal Distribution Histogram") +
-      xlab(paste(n, "Samples in", b, "Bins"))
+      xlab(paste(n, "Samples with Binwidth = ",b))
   } else if (d == "t") {
     y = NULL
     tdist <- rt(n = n, df = x)
@@ -43,7 +43,7 @@ rshist <- function(d, n, x = 50, y = 50, s=NULL, b=2) {
       theme_economist() +
       scale_color_economist() +
       ggtitle("Random T Distribution Histogram") +
-      xlab(paste(n, "Samples in", b, "Bins"))
+      xlab(paste(n, "Samples with Binwidth = ",b))
   } else if (d == "f") {
     fdist <- rf(n = n, df1 = x, df2 = y)
     fdist <- as.data.frame(fdist)
@@ -52,7 +52,7 @@ rshist <- function(d, n, x = 50, y = 50, s=NULL, b=2) {
       theme_economist() +
       scale_color_economist() +
       ggtitle("Random F Distribution Histogram") +
-      xlab(paste(n, "Samples in", b, "Bins"))
+      xlab(paste(n, "Samples with Binwidth = ",b))
   }  else if (d == "b") {
     binom <- rbinom(n = n, size = x, prob = y/100)
     binom <- as.data.frame(binom)
@@ -61,7 +61,7 @@ rshist <- function(d, n, x = 50, y = 50, s=NULL, b=2) {
       theme_economist() +
       scale_color_economist() +
       ggtitle("Random Binomial Distribution Histogram") +
-      xlab(paste(n, "Samples in", b, "Bins"))
+      xlab(paste(n, "Samples with Binwidth = ",b))
   } else {
     stop(paste0("distribution is not normal (\"n\"), t (\"t\"), F (\"f\"), Binomial = (\"b\")"))
   }
