@@ -36,18 +36,16 @@ rsdist("n", n = 1000, x = 6, y = 5, s = 1)
 
 rsdist("n", n = 1000, x = 6, y = 5, s = 1, b = 2)
 
-```{r example}
+```{r example, message = FALSE}
 library(rsdistplot)
-## basic example code
+library(tidyverse)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-rsdist("n", n = 1000, x = 6, y = 5, s = 1)
+```{r}
+rsdist("n", n = 1000, x = 6, y = 5, s = 1) %>% head(20)
 ```
 
-```{r pressure, echo = FALSE}
+```{r}
 rshist("n", n = 1000, x = 6, y = 5, s = 1)
 ```
 
