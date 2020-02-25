@@ -4,32 +4,32 @@
 \alias{rsdist}
 \title{Random Sample Distribution}
 \usage{
-rsdist(d, n, x, y = NULL, s = NULL)
+rsdist(d, n, x = 50, y = 50, s = NULL)
 }
 \arguments{
 \item{d}{Character variable representing 4 types of distributions (n = Normal, t = t, f = F, and b = Binomial)}
 
 \item{n}{Interger variable for sample size}
 
-\item{x}{Parameter 1 of the distribution}
+\item{x}{Parameter 1 of the distribution (default = 50)}
 
-\item{y}{Parameter 2 of the distribution}
+\item{y}{Parameter 2 of the distribution (default = 50)}
 
-\item{s}{Set seed to s interger}
+\item{s}{Set seed to s interger (default = NULL)}
 }
 \value{
-
+Random variates having normal, t, f, or binomial distribution
 }
 \description{
 Allow users to generate random samples from 4 different distributions: Normal("n"), t("t"), F("f"), Binomial("b")
-Users should only have to enter the name of the distribution ("n", "t", "f", "b") and the number of samples (n) to get a sample with the default argument values.
-Users should be able to specify arguments for the parameters of each distribution to override the defaults.
+Users only need to enter the name of the distribution ("n", "t", "f", "b") and the number of samples (n) to get a sample with the default argument values.
+Users can specify arguments for the parameters of each distribution to override the defaults.
 Normal: Mean (x) and Standard Deviation (y)
 t: Degrees of Freedom (x)
 F: Numerator (x) and Denominator Degrees of Freedom (y)
 Binomial: Size-Number of Trials (x),and p-Probability of Success on each Trial (y)
-Users should be able to choose to set the seed or not and if they set the seed the value of the seed (the last arguments or s).
+Users can choose to set the seed or not and if they set the seed the value of the seed. To set seed, add s = interger (ex. s = 1) when calling the function.
 }
 \examples{
-rsdist("n", n = 50, x = 6, y = 5, s = 1)
+rsdist("n", n = 1000, x = 6, y = 5, s = 1)
 }
