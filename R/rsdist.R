@@ -22,16 +22,20 @@
 #' @examples rsdist("n", n = 1000, x = 6, y = 5, s = 1)
 rsdist <- function(d, n, x = 50, y = 50, s=NULL) {
   set.seed(s)
-  if (d == "n") {
-    rnorm(n = n, mean = x, sd = y)
-  } else if (d == "t") {
-    y = NULL
-    rt(n = n, df = x)
-  } else if (d == "f") {
-    rf(n = n, df1 = x, df2 = y)
-  }  else if (d == "b") {
-    rbinom(n = n, size = x, prob = y/100)
+  if (!is.numeric(c(n, x, y))) {
+    stop("`n`, `x` and `y` must be numeric", call. = FALSE)
   } else {
-    stop(paste0("distribution is not normal (\"n\"), t (\"t\"), F (\"f\"), Binomial = (\"b\")"))
+    if (d == "n") {
+      rnorm(n = n, mean = x, sd = y)
+    } else if (d == "t") {
+      y = NULL
+      rt(n = n, df = x)
+    } else if (d == "f") {
+      rf(n = n, df1 = x, df2 = y)
+    }  else if (d == "b") {
+      rbinom(n = n, size = x, prob = y/100)
+    } else {
+      stop(paste0("distribution is not normal (\"n\"), t (\"t\"), F (\"f\"), Binomial = (\"b\")"))
+    }
   }
 }

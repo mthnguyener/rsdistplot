@@ -25,44 +25,48 @@
 #' @examples rshist("n", n = 1000, x = 6, y = 5, s = 1)
 rshist <- function(d, n, x = 50, y = 50, s=NULL, b=2) {
   set.seed(s)
-  if (d == "n") {
-    normal <- rnorm(n = n, mean = x, sd = y)
-    normal <- as.data.frame(normal)
-    ggplot(normal, aes(x=normal)) +
-      geom_histogram(color="darkblue", fill="lightblue", binwidth = b) +
-      theme_economist() +
-      scale_color_economist() +
-      ggtitle("Random Normal Distribution Histogram") +
-      xlab(paste(n, "Samples with Binwidth = ",b))
-  } else if (d == "t") {
-    y = NULL
-    tdist <- rt(n = n, df = x)
-    tdist <- as.data.frame(tdist)
-    ggplot(tdist, aes(x=tdist)) +
-      geom_histogram(color="darkblue", fill="lightblue", binwidth = b) +
-      theme_economist() +
-      scale_color_economist() +
-      ggtitle("Random T Distribution Histogram") +
-      xlab(paste(n, "Samples with Binwidth = ",b))
-  } else if (d == "f") {
-    fdist <- rf(n = n, df1 = x, df2 = y)
-    fdist <- as.data.frame(fdist)
-    ggplot(fdist, aes(x=fdist)) +
-      geom_histogram(color="darkblue", fill="lightblue", binwidth = b) +
-      theme_economist() +
-      scale_color_economist() +
-      ggtitle("Random F Distribution Histogram") +
-      xlab(paste(n, "Samples with Binwidth = ",b))
-  }  else if (d == "b") {
-    binom <- rbinom(n = n, size = x, prob = y/100)
-    binom <- as.data.frame(binom)
-    ggplot(binom, aes(x=binom)) +
-      geom_histogram(color="darkblue", fill="lightblue", binwidth = b) +
-      theme_economist() +
-      scale_color_economist() +
-      ggtitle("Random Binomial Distribution Histogram") +
-      xlab(paste(n, "Samples with Binwidth = ",b))
+  if (!is.numeric(c(n, x, y))) {
+    stop("`n`, `x` and `y` must be numeric", call. = FALSE)
   } else {
-    stop(paste0("distribution is not normal (\"n\"), t (\"t\"), F (\"f\"), Binomial = (\"b\")"))
+    if (d == "n") {
+      normal <- rnorm(n = n, mean = x, sd = y)
+      normal <- as.data.frame(normal)
+      ggplot(normal, aes(x=normal)) +
+        geom_histogram(color="darkblue", fill="lightblue", binwidth = b) +
+        theme_economist() +
+        scale_color_economist() +
+        ggtitle("Random Normal Distribution Histogram") +
+        xlab(paste(n, "Samples with Binwidth = ",b))
+    } else if (d == "t") {
+      y = NULL
+      tdist <- rt(n = n, df = x)
+      tdist <- as.data.frame(tdist)
+      ggplot(tdist, aes(x=tdist)) +
+        geom_histogram(color="darkblue", fill="lightblue", binwidth = b) +
+        theme_economist() +
+        scale_color_economist() +
+        ggtitle("Random T Distribution Histogram") +
+        xlab(paste(n, "Samples with Binwidth = ",b))
+    } else if (d == "f") {
+      fdist <- rf(n = n, df1 = x, df2 = y)
+      fdist <- as.data.frame(fdist)
+      ggplot(fdist, aes(x=fdist)) +
+        geom_histogram(color="darkblue", fill="lightblue", binwidth = b) +
+        theme_economist() +
+        scale_color_economist() +
+        ggtitle("Random F Distribution Histogram") +
+        xlab(paste(n, "Samples with Binwidth = ",b))
+    }  else if (d == "b") {
+      binom <- rbinom(n = n, size = x, prob = y/100)
+      binom <- as.data.frame(binom)
+      ggplot(binom, aes(x=binom)) +
+        geom_histogram(color="darkblue", fill="lightblue", binwidth = b) +
+        theme_economist() +
+        scale_color_economist() +
+        ggtitle("Random Binomial Distribution Histogram") +
+        xlab(paste(n, "Samples with Binwidth = ",b))
+    } else {
+      stop(paste0("distribution is not normal (\"n\"), t (\"t\"), F (\"f\"), Binomial = (\"b\")"))
+    }
   }
 }
