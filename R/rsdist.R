@@ -1,12 +1,19 @@
 #' Random Sample Distribution
 #'
-#' Allow users to generate random samples from 4 different distributions: Normal("n"), t("t"), F("f"), Binomial("b")
+#' Allow users to generate random samples from 4 different distributions: Normal("n"), t("t"), F("f"), Binomial("b").
+#'
 #' Users only need to enter the name of the distribution ("n", "t", "f", "b") and the number of samples (n) to get a sample with the default argument values.
+#'
 #' Users can specify arguments for the parameters of each distribution to override the defaults.
+#'
 #' Normal: Mean (x) and Standard Deviation (y)
+#'
 #' t: Degrees of Freedom (x)
+#'
 #' F: Numerator (x) and Denominator Degrees of Freedom (y)
+#'
 #' Binomial: Size-Number of Trials (x),and p-Probability of Success on each Trial (y)
+#'
 #' Users can choose to set the seed or not and if they set the seed the value of the seed. To set seed, add s = interger (ex. s = 1) when calling the function.
 #'
 #' @param d Character variable representing 4 types of distributions (n = Normal, t = t, f = F, and b = Binomial)

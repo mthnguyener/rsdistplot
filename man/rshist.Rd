@@ -23,13 +23,21 @@ rshist(d, n, x = 50, y = 50, s = NULL, b = 2)
 A plot of random variates having normal, t, f, or binomial distribution
 }
 \description{
-Allow users to generate plots of histograms for random samples from 4 different distributions: Normal("n"), t("t"), F("f"), Binomial("b")
-Users only need to enter the name of the distribution ("n", "t", "f", "b") and the number of samples (n) to get a result
-Users can include additional parameters for each distribution as well as the number of bins for the histogram
+Allow users to generate plots of histograms for random samples from 4 different distributions: Normal("n"), t("t"), F("f"), Binomial("b").
+}
+\details{
+Users only need to enter the name of the distribution ("n", "t", "f", "b") and the number of samples (n) to get a result.
+
+Users can include additional parameters for each distribution as well as the number of bins for the histogram.
+
 Normal: Mean (x) and Standard Deviation (y)
+
 t: Degrees of Freedom (x)
+
 F: Numerator (x) and Denominator Degrees of Freedom (y)
+
 Binomial: Size-Number of Trials (x),and p-Probability of Success on each Trial (y)
+
 Users can choose to set the seed or not and if they set the seed the value of the seed. To set seed, add s = interger (ex. s = 1) when calling the function.
 }
 \examples{
